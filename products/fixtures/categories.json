@@ -1,0 +1,50 @@
+[
+    {
+        "model": "products.productcategory",
+        "pk": 3,
+        "fields": {
+            "name": "Котлы отопления",
+            "description": "Котлы отопления - газовые, электрические, твердотопливные, жидкотопливные приборы отопления."
+        }
+    },
+    {
+        "model": "products.productcategory",
+        "pk": 4,
+        "fields": {
+            "name": "Бойлеры",
+            "description": "Бойлеры косвенного нагрева и комбинированные, водонагреватели, цены, характеристики."
+        }
+    },
+    {
+        "model": "products.productcategory",
+        "pk": 5,
+        "fields": {
+            "name": "Насосы",
+            "description": "Насосы для систем отопления и водоснабжения циркуляционные, поверхностные, повысительные, дренажные, погружные."
+        }
+    },
+    {
+        "model": "products.productcategory",
+        "pk": 6,
+        "fields": {
+            "name": "Радиаторы",
+            "description": "Отопительные радиаторы (батареи отопления)"
+        }
+    },
+    {
+        "model": "products.productcategory",
+        "pk": 7,
+        "fields": {
+            "name": "Счетчики",
+            "description": "Счетчики воды и газа."
+        }
+    },
+    {
+        "model": "products.productcategory",
+        "pk": 8,
+        "fields": {
+            "name": "Трубы для теплого пола.",
+            "description": "Трубы из сшитого полиэтилена."
+        }
+    }
+]

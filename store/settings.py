@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y02f+xvy4o#1)64y$b!^#$er(*%tdafda8@runs&rll*u(17t%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['45.8.251.69']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,23 +76,23 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "store_db",
-        "USER": "store_user",
-        "PASSWORD": "store_user",
-        "HOST": "localhost",
-        "PORT": "",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "store_db",
+#         "USER": "store_user",
+#         "PASSWORD": "store_user",
+#         "HOST": "localhost",
+#         "PORT": "",
+#     }
+# }
 
 
 # Password validation
@@ -132,8 +132,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = (BASE_DIR / 'static',)
-STATIC_ROOT = 'static/'
+STATICFILES_DIRS = (BASE_DIR / 'static',)
+# STATIC_ROOT = 'static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -145,3 +145,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = '/users/login/'

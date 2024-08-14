@@ -1,5 +1,7 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from cart.forms import CartAddProductForm
+from cart.forms import CartAddProductForm
 
 from products.models import Product, ProductCategory, Basket
 from django.core.paginator import Paginator
@@ -20,11 +22,22 @@ def products(request, category_id=None, page_number=1):
         'title': 'Store - catalog',
         'categories': ProductCategory.objects.all(),
         'products': products_paginator,
+        'cart_product_form': CartAddProductForm()
   
     }
     return render(request, 'products/products.html', context=context)
 
-@login_required
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    cart_product_form = CartAddProductForm()
+    return render(request, 'products/detail.html', {
+                'product': product,
+                'cart_product_form': cart_product_form,
+        })
+
+
+
 def basket_add(request, product_id):
     product = Product.objects.get(id=product_id)
     baskets = Basket.objects.filter(user=request.user, product=product)

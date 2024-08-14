@@ -37,6 +37,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'products:index' %}">Каталог <i class="fas fa-shopping-bag"></i> </a>
                 </li>
+                
                 {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -70,6 +71,19 @@
         </div>
     </div>
 </nav>
+<div class="cart">
+    {% with total_items=cart|length %}
+    {% if total_items > 0 %}
+    Корзина:
+    <a href="{% url "cart:cart_detail" %}">
+    {{ total_items }} товаров ,
+    {{ cart.get_total_price }}руб.
+    </a>
+    {% else %}
+    Корзина пуста.
+    {% endif %}
+    {% endwith %}
+    </div>
 
 {% block content %}
 {% endblock content %}
